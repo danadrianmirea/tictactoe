@@ -1,13 +1,6 @@
 #include <stdio.h>
 #include "functions.h"
 
-/**
- * @brief Reusable input function for strings
- *
- * @param buffer
- * @param n size of buffer
- * @return The inputted text. Return NULL on failiure and exits
- */
 char *input(char *buffer, size_t n)
 {
     if (fgets(buffer, n, stdin) == NULL)
@@ -34,11 +27,6 @@ char *input(char *buffer, size_t n)
     return buffer;
 }
 
-/**
- * @brief Get a single character from stdin (excluding '\n')
- *
- * @return The read character. If it fails, 0 will be returned
- */
 char inputc()
 {
     char ch = getchar();
@@ -61,7 +49,6 @@ char inputc()
     return ch;
 }
 
-// Output the current state of the grid
 void gridOut(char grid[9])
 {
     printf(" |A|B|C|\n");
@@ -86,12 +73,6 @@ char switchPlayer(char player)
     }
 }
 
-/**
- * @brief Get the indexes of all empty spaces
- *
- * @param grid
- * @param indexes Array containing indexes
- */
 void getEmptySpaces(char grid[9], int indexes[9])
 {
     int count = 0;
@@ -105,14 +86,6 @@ void getEmptySpaces(char grid[9], int indexes[9])
     }
 }
 
-/**
- * @brief Place the specified token in the grid
- *
- * @param player Either 'X' or 'O'
- * @param grid
- * @param coordinate In the form "1A" to "3C"
- * @return 0 on sucess and -1 if the coordinate is invalid
- */
 int placeToken(char player, char grid[9], char *coordinate)
 {
     int y;
@@ -156,14 +129,6 @@ int checkWinner(char player, char grid[9])
     return 0;
 }
 
-/**
- * @brief Randomly place a token in any empty space
- *
- * @param grid
- * @param player
- * @param emptySpaces
- * @returns 0
- */
 int normalAI(char grid[9], char player, int emptySpaces)
 {
     int indexes[9];
@@ -173,15 +138,6 @@ int normalAI(char grid[9], char player, int emptySpaces)
     return 0;
 }
 
-/**
- * @brief Main minimax function
- *
- * @param grid
- * @param emptySpaces
- * @param player
- * @param cmp Determines whether to maximise or minimise
- * @return int
- */
 int minimax(char grid[9], int emptySpaces, char player, compare cmp)
 {
 
@@ -248,14 +204,6 @@ int minimax(char grid[9], int emptySpaces, char player, compare cmp)
     }
 }
 
-/**
- * @brief Entry point for the minimax algorithm
- *
- * @param grid
- * @param player
- * @param emptySpaces
- * @return int
- */
 int impossibleAI(char grid[9], char player, int emptySpaces)
 {
     int score = -1000;
