@@ -340,15 +340,6 @@ EXIT:
 	return 0;
 }
 
-/**
- * @brief Check if the mouse is hovering over a grid dquare
- *
- * @param mousePos
- * @param gridPos
- * @param squareSize
- * @param gridSpace
- * @return The grid index where the mouse is over
- */
 int mouseCollide(Vector2 mousePos, Vector2 gridPos, int squareSize, int gridSpace)
 {
 	for (int i = 0; i < 3; i++)
@@ -365,12 +356,6 @@ int mouseCollide(Vector2 mousePos, Vector2 gridPos, int squareSize, int gridSpac
 	return -1;
 }
 
-/**
- * @brief Check which button the mouse is over
- *
- * @param buttons
- * @return The button index or -1 if the mouse isn't over a button
- */
 int checkButton(Rectangle buttons[3])
 {
 	Vector2 mousePos = GetMousePosition();
